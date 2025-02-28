@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paint App</title>
+  <script type='text/javascript' src='//pl25979275.effectiveratecpm.com/51/15/f4/5115f499349acac6012265d0d342a6c3.js'></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f0f0; }
+        .container { display: flex; width: 90%; height: 90vh; }
+        .banner-ad { width: 100px; background: #ddd; display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: bold; }
+        .paint-area { flex: 1; display: flex; flex-direction: column; align-items: center; background: white; padding: 10px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); }
+        .toolbar { display: flex; gap: 10px; margin-bottom: 10px; }
+        canvas { border: 2px solid black; cursor: crosshair; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="banner-ad">Ad</div>
+        <div class="paint-area">
+            <div class="toolbar">
+                <input type="color" id="colorPicker">
+                <input type="range" id="brushSize" min="1" max="20" value="5">
+                <button onclick="clearCanvas()">Clear</button>
+            </div>
+            <canvas id="canvas" width="600" height="400"></canvas>
+        </div>
+        <div class="banner-ad">Ad</div>
+    </div>
+<script type="text/javascript">
+	atOptions = {
+		'key' : '522ee9851e86c0cf4cdb583b11452f61',
+		'format' : 'iframe',
+		'height' : 60,
+		'width' : 468,
+		'params' : {}
+	};
+</script>
+<script type="text/javascript" src="//www.highperformanceformat.com/522ee9851e86c0cf4cdb583b11452f61/invoke.js"></script>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext("2d");
+        const colorPicker = document.getElementById("colorPicker");
+        const brushSize = document.getElementById("brushSize");
+        
+        let painting = false;
+        
+        function startPosition(e) {
+            painting = true;
+            draw(e);
+        }
+        function endPosition() {
+            painting = false;
+            ctx.beginPath();
+        }
+        function draw(e) {
+            if (!painting) return;
+            ctx.lineWidth = brushSize.value;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = colorPicker.value;
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(e.offsetX, e.offsetY);
+        }
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+        
+        canvas.addEventListener("mousedown", startPosition);
+        canvas.addEventListener("mouseup", endPosition);
+        canvas.addEventListener("mousemove", draw);
+    </script>
+  <script async="async" data-cfasync="false" src="//pl25976348.effectiveratecpm.com/30f78a6d76568bc0cfb56fa6ae4c75fd/invoke.js"></script>
+<div id="container-30f78a6d76568bc0cfb56fa6ae4c75fd"></div>
+</body>
+</html>
